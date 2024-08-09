@@ -48,10 +48,10 @@ function Navbar() {
                 <div className="navbar-end mr-20">
                     <div className='gap-4 hidden lg:flex'>
                         <Link href="#">
-                            <button className="btn btn-sm btn-outline">Login</button>
+                            <button className="btn btn-sm btn-outline hover:bg-black rounded-sm">Login</button>
                         </Link>
                         <Link href="#">
-                            <button className="btn btn-sm btn-outline">Subscribe</button>
+                            <button className="btn btn-sm btn-outline hover:bg-black rounded-sm">Subscribe</button>
                         </Link>
                     </div>
                 </div>
@@ -84,7 +84,7 @@ function Navbar() {
                     </Link>
                 </div>
                 <div className="mr-20">
-                    <MagnifyingGlassIcon aria-hidden="true" className="h-14 w-14 text-black btn btn-ghost" />
+                    <MagnifyingGlassIcon aria-hidden="true" className="h-14 w-14 text-black btn btn-ghost " />
                 </div>
             </div>
         </div>
