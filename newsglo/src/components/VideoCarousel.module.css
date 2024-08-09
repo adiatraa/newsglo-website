@@ -1,0 +1,99 @@
+.embla {
+    overflow: hidden;
+    width: 100%;
+}
+
+.embla__container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    transition: transform 0.5s ease;
+}
+
+.centerSecondCard {
+    transform: translateX(-50%); 
+}
+
+.embla__slide {
+    min-width: 50%;
+    position: relative;
+}
+
+.videoCard {
+    background: #F6F6F6;
+    height: 350px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.videoOverlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
+
+.videoCategory {.embla {
+    overflow: hidden;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.embla__container {
+    display: flex;
+    gap: 20px; 
+    justify-content: center; 
+    transition: transform 0.5s ease;
+}
+
+.embla__slide {
+    min-width: 33.33%;
+    position: relative;
+}
+
+.videoCard {
+    background: #F6F6F6;
+    height: 300px;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+.playButton:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.videoTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.playButton {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.playButton:hover {
+    background: rgba(255, 255, 255, 1);
+}

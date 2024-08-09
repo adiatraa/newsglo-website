@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import display from "../../public/display.jpg";
+import { VideoCarousel } from '../components/VideoCarousel';
 
 export default function Home() {
   return (
     <main className="bg-white">
-      <div className="p-6 sm:p-12 md:p-16 lg:p-24 flex flex-col lg:flex-row gap-6 lg:gap-10 w-full lg:h-[620px] 2xl:h-[810px]">
+      <div className="p-6 sm:p-12 md:p-16 lg:px-24 lg:py-10 lg:mb-4 flex flex-col lg:flex-row gap-6 lg:gap-10 w-full lg:h-[520px] 2xl:h-[810px]">
         <div className="p-4 w-full lg:w-2/6 flex flex-col gap-4 lg:gap-6 2xl:gap-8 2xl:justify-center">
           <h1 className="text-xs sm:text-sm text-blue-500">INNOVATION</h1>
           <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl 2xl:text-4xl font-bold leading-tight lg:leading-normal 2xl:leading-[50px]">
@@ -83,6 +84,16 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </div>
+      {/* Video Preview Content */}
+      <div className="p-6 pb-0 sm:p-10 md:p-16 lg:!pb-8 lg:p-20 bg-white w-full">
+        <div className="flex justify-between mt-6">
+        <h2 className="text-sm sm:text-lg text-black">Videos</h2>
+        <button className="btn btn-sm btn-outline hover:bg-black rounded-sm">Load More</button>
+      </div>
+      </div>
+      <div className="pb-20">
+        <VideoCarousel />
       </div>
     </main>
   );
