@@ -5,8 +5,8 @@ import Link from 'next/link';
 import TrendingCarousel from '@/components/TrendingSlide';
 import { ArticleCategory } from '@/categoryTypes';
 
-async function getData() {
-  const res = await fetch('https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk%3A(%22Technology%22)&api-key=' + process.env.NEXT_PUBLIC_NEWS_API_KEY);
+async function getData(category: string) {
+  const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk%3A("${category}")&api-key=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`);
 
   if (!res.ok) {
     throw new Error('Could not fetch data');
@@ -15,7 +15,7 @@ async function getData() {
 }
 
 export default async function Page({ params }: { params: { categoryName: string } }) {
-  const data: ArticleCategory = await getData();
+  const data: ArticleCategory = await getData(params.categoryName);
   const articles = data.response.docs; 
   const heroArticle = articles[0];
   const sideArticles = articles.slice(1, 3);
