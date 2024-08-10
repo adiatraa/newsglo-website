@@ -7,6 +7,10 @@ import Image from "next/image";
 import thumb from '../../public/display.jpg';
 import { PlayIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import basket from '../../public/basket.jpeg';
+import artificial from '../../public/artificial.webp';
+import indonesia from '../../public/indonesia.webp';
+import roblox from '../../public/roblox.jpg';
 
 export function VideoCarousel() {
     const [emblaRef, embla] = useEmblaCarousel();
@@ -22,24 +26,29 @@ export function VideoCarousel() {
 
     const videoData = [
         {
-            title: "Men may be 2.5 times more likely to die from COVID-19 than women",
-            category: "HEALTH",
+            title: "World Cup qualifying hopes grow for Indonesia's heroes",
+            category: "SPORTS",
+            image: indonesia,
         },
         {
-            title: "Men may be 2.5 times more likely to die from COVID-19 than women",
-            category: "HEALTH",
+            title: "Can You Be Emotionally Reliant on an A.I. Voice? OpenAI Says Yes.",
+            category: "TECHNOLOGY",
+            image: artificial,
         },
         {
-            title: "Men may be 2.5 times more likely to die from COVID-19 than women",
-            category: "HEALTH",
+            title: "It's Steph's world: Curry's hot shooting gets USA another gold",
+            category: "SPORTS",
+            image: basket,
         },
         {
-            title: "Men may be 2.5 times more likely to die from COVID-19 than women",
-            category: "HEALTH",
+            title: "The growing influence of virtual gaming platforms like Roblox on how we interact online",
+            category: "GAMES",
+            image: roblox,
         },
         {
-            title: "Men may be 2.5 times more likely to die from COVID-19 than women",
-            category: "HEALTH",
+            title: "It's Steph's world: Curry's hot shooting gets USA another gold",
+            category: "SPORTS",
+            image: basket,
         },
     ];
 
@@ -53,7 +62,7 @@ export function VideoCarousel() {
                     <div className={styles.embla__slide} key={index}>
                         <div className={styles.videoCard}>
                             <Image
-                                src={thumb}
+                                src={video.image || thumb}
                                 alt="Video Thumbnail"
                                 layout="fill"
                                 objectFit="cover"
