@@ -2,8 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import display from "../../public/display.jpg";
 import { VideoCarousel } from '../components/VideoCarousel';
+import { ArticlePopular } from "@/types";
 
-export default function Home() {
+async function getData() {
+  const res = await fetch('https://api.nytimes.com/svc/mostpopular/v2/emailed/1.json?api-key=AipCi02aLgs2QDrNrGKUGbF6TaAsLKlJ');
+
+  if (!res.ok) {
+    throw new Error('Could not fetch data');
+  }
+  return res.json();
+}
+
+export default async function Home() {
+  const data: ArticlePopular = await getData();
+  const articles = data.results;
+
   return (
     <main className="bg-white">
       <div className="p-6 sm:p-12 md:p-16 lg:px-24 lg:py-10 lg:mb-4 flex flex-col lg:flex-row gap-6 lg:gap-10 w-full lg:h-[520px] 2xl:h-[810px]">
@@ -38,45 +51,42 @@ export default function Home() {
           />
         </div>
       </div>
-      {/* Our Latest Post */}
+      {/* Most Popular Article */}
       <div className="p-6 sm:p-10 md:p-16 lg:p-20 bg-[#F8F9FA] min-h-screen">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-sm sm:text-lg text-black">Our Latest Posts</h2>
+          <h2 className="text-sm sm:text-lg text-black">Most Popular Articles</h2>
           <Link href="#">
             <button className="btn btn-sm btn-outline hover:bg-black rounded-sm">Read More</button>
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[...Array(6)].map((_, index) => (
-            <div key={index} className="overflow-hidden bg-white rounded-lg shadow-md">
+          {articles.map((article) => (
+            <div key={article.id} className="overflow-hidden bg-white rounded-lg shadow-md flex flex-col h-full">
               <div className="relative w-full h-48">
                 <Image
                   src={display}
-                  alt="Article"
+                  alt={article.title}
                   layout="fill"
                   objectFit="cover"
                   className="rounded-t-lg"
                 />
               </div>
-              <div className="p-4">
-                <span className="text-xs font-medium text-blue-500 uppercase">Innovation</span>
-                <a href="#" className="block mt-2 text-sm sm:text-base font-semibold text-black hover:underline">
-                  Charge Two Devices at the Same Time With This Magnetic Wireless Charging Dock
+              <div className="p-4 flex flex-col flex-grow">
+                <span className="text-xs font-medium text-blue-500 uppercase">{article.section}</span>
+                <a href="#" className="block mt-2 text-sm sm:text-base font-semibold text-black hover:underline flex-grow">
+                  {article.title}
                 </a>
-                <p className="mt-2 text-xs sm:text-sm text-gray-600">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie parturient et sem ipsum volutpat vel.
+                <p className="mt-2 text-xs sm:text-sm text-gray-600 flex-grow">
+                  {article.abstract}
                 </p>
-                <div className="mt-4 flex items-center space-x-8 sm:space-x-12 lg:space-x-20 2xl:space-x-48">
+                <div className="mt-4 flex justify-between items-center">
                   <div className="flex items-center">
-                    <div className="h-10 w-10 bg-gray-500 rounded-full">
-                      <p>.</p>
-                    </div>
                     <div className="ml-3">
-                      <a href="#" className="text-xs sm:text-sm font-semibold text-black">Shoo Phar Mhan</a>
+                      <a href="#" className="text-xs sm:text-sm font-semibold text-black">{article.byline}</a>
                       <span className="block text-xs text-gray-600">Author</span>
                     </div>
                   </div>
-                  <Link href="#">
+                  <Link href={article.url} target="_blank">
                     <button className="btn btn-sm btn-outline hover:bg-black rounded-sm">Read More</button>
                   </Link>
                 </div>
@@ -84,13 +94,14 @@ export default function Home() {
             </div>
           ))}
         </div>
+
       </div>
       {/* Video Preview Content */}
       <div className="p-6 pb-0 sm:p-10 md:p-16 lg:!pb-8 lg:p-20 bg-white w-full">
         <div className="flex justify-between mt-6">
-        <h2 className="text-sm sm:text-lg text-black">Videos</h2>
-        <button className="btn btn-sm btn-outline hover:bg-black rounded-sm">Load More</button>
-      </div>
+          <h2 className="text-sm sm:text-lg text-black">Videos</h2>
+          <button className="btn btn-sm btn-outline hover:bg-black rounded-sm">Load More</button>
+        </div>
       </div>
       <div className="pb-20">
         <VideoCarousel />

@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-import display from '../../../public/display.jpg'; // Ensure this path is correct
+import display from '../../../../public/display.jpg'; 
 import Link from 'next/link';
 import TrendingCarousel from '@/components/TrendingSlide';
 
-export default function CategoryPage() {
+export default function Page({ params }: { params: { categoryName: string } }) {
   return (
     <div>
       <div className="relative bg-gray-900 text-white">
