@@ -42,7 +42,7 @@ export default async function Home() {
         </div>
         <div className="w-full lg:w-2/3 relative">
           <Image
-            src={display}
+            src={heroArticle?.media[0] && heroArticle?.media[0]["media-metadata"][2].url}
             alt={heroArticle.title}
             layout="fill"
             objectFit="cover"
@@ -63,7 +63,7 @@ export default async function Home() {
             <div key={article.id} className="overflow-hidden bg-white rounded-lg shadow-md flex flex-col h-full">
               <div className="relative w-full h-48">
                 <Image
-                  src={display}
+                  src={article?.media[0] && article?.media[0]["media-metadata"][2].url}
                   alt={article.title}
                   layout="fill"
                   objectFit="cover"
