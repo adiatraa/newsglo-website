@@ -5,7 +5,7 @@ import { VideoCarousel } from '../components/VideoCarousel';
 import { ArticlePopular } from "@/types";
 
 async function getData() {
-  const res = await fetch('https://api.nytimes.com/svc/mostpopular/v2/emailed/1.json?api-key=AipCi02aLgs2QDrNrGKUGbF6TaAsLKlJ');
+  const res = await fetch('https://api.nytimes.com/svc/mostpopular/v2/emailed/1.json?api-key=' + process.env.NEXT_PUBLIC_NEWS_API_KEY);
 
   if (!res.ok) {
     throw new Error('Could not fetch data');
@@ -20,6 +20,7 @@ export default async function Home() {
   return (
     <main className="bg-white">
       <div className="p-6 sm:p-12 md:p-16 lg:px-24 lg:py-10 lg:mb-4 flex flex-col lg:flex-row gap-6 lg:gap-10 w-full lg:h-[520px] 2xl:h-[810px]">
+        {/* Hero Section */}
         <div className="p-4 w-full lg:w-2/6 flex flex-col gap-4 lg:gap-6 2xl:gap-8 2xl:justify-center">
           <h1 className="text-xs sm:text-sm text-blue-500">INNOVATION</h1>
           <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl 2xl:text-4xl font-bold leading-tight lg:leading-normal 2xl:leading-[50px]">
@@ -81,6 +82,7 @@ export default async function Home() {
                 </p>
                 <div className="mt-4 flex justify-between items-center">
                   <div className="flex items-center">
+                    
                     <div className="ml-3">
                       <a href="#" className="text-xs sm:text-sm font-semibold text-black">{article.byline}</a>
                       <span className="block text-xs text-gray-600">Author</span>
