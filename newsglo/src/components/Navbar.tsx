@@ -69,11 +69,11 @@ function Navbar() {
                     <Link href="/category/food">
                         <h1 className="btn btn-ghost">Food</h1>
                     </Link>
-                    <Link href="/category/sport">
-                        <h1 className="btn btn-ghost">Sport</h1>
+                    <Link href="/category/sports">
+                        <h1 className="btn btn-ghost">Sports</h1>
                     </Link>
-                    <Link href="/category/health">
-                        <h1 className="btn btn-ghost">Health</h1>
+                    <Link href="/category/movies">
+                        <h1 className="btn btn-ghost">Movies</h1>
                     </Link>
                     <Link href="/category/technology">
                         <h1 className="btn btn-ghost">Technology</h1>

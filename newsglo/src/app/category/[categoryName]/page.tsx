@@ -17,7 +17,7 @@ async function getData(category: string) {
 export default async function Page({ params }: { params: { categoryName: string } }) {
   const data: ArticleCategory = await getData(params.categoryName);
   const articles = data.results; 
-  const heroArticle = articles[0];
+  const heroArticle = articles[1];
   const sideArticles = articles.slice(1, 3);
 
   return (
@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: { categoryName: string 
 
           <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-8 md:pl-16 2xl:pl-24">
             <div className="max-w-lg">
-              <p className="text-sm sm:text-md font-semibold mb-4 sm:mb-6">{heroArticle.section}</p>
+              <p className="text-sm sm:text-md font-semibold mb-4 sm:mb-6 uppercase">{heroArticle.section}</p>
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold leading-tight">
                 {heroArticle.title}
               </h1>
@@ -72,7 +72,7 @@ export default async function Page({ params }: { params: { categoryName: string 
       
       {/* Trending Slide */}
       <div className='py-12 bg-white'>
-        <TrendingCarousel />
+        <TrendingCarousel articles={articles} />
       </div>
       
       {/* Most Popular Article */}
