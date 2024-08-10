@@ -1,133 +1,182 @@
 .container {
-    margin: 20px auto;
-    max-width: 1200px;
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 0 15px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+}
+
+.pagination span {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination span.active {
+  background-color: #333;
+  color: white;
+}
+
+.pagination span:hover {
+  background-color: #555;
+  color: white;
+}
+
+.embla {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: stretch;
+}
+
+.embla__container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.embla__slide_large {
+  width: 65%;
+  position: relative;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.imageLarge {
+  width: 100%;
+  height: auto;
+  flex-grow: 1;
+}
+
+.textOverlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+}
+
+.category {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.authorTime {
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+.sideListContainer {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sideList {
+  display: flex;
+  flex-direction: column;
+}
+
+.sideItem {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.imageSmall {
+  width: 70px;
+  height: 70px;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.sideText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titleSmall {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.authorTimeSmall {
+  font-size: 0.75rem;
+  margin-top: 5px;
+  color: #555;
+}
+
+/* Media Queries for Mobile View */
+@media (max-width: 768px) {
+  .embla__slide_large {
+    display: none; 
   }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .heading {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .pagination {
-    display: flex;
-    align-items: center;
-  }
-  
-  .pagination span {
-    margin-left: 10px;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .pagination span.active {
-    background-color: #333;
-    color: white;
-  }
-  
-  .pagination span:hover {
-    background-color: #000000;
-    color: white;
-  }
-  
+
   .embla {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    align-items: stretch; 
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .embla__container {
-    display: flex;
-    flex-direction: row;
+
+  .sideListContainer {
     width: 100%;
   }
-  
-  .embla__slide_large {
-    width: 65%;
-    position: relative;
-    margin-right: 20px;
-    display: flex;
+
+  .sideItem {
     flex-direction: column;
-    justify-content: center; 
+    align-items: center;
+    text-align: center;
   }
-  
-  .imageLarge {
+
+  .imageSmall {
     width: 100%;
     height: auto;
-    flex-grow: 1;
+    margin-bottom: 10px;
   }
-  
-  .textOverlay {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: white;
-  }
-  
-  .category {
-    font-size: 0.875rem;
-    font-weight: bold;
-  }
-  
-  .title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-top: 5px;
-  }
-  
-  .authorTime {
-    font-size: 0.875rem;
-    margin-top: 5px;
-  }
-  
-  .sideListContainer {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
+
+  .pagination {
     justify-content: center;
+    margin-top: 10px;
   }
-  
-  .sideList {
-    display: flex;
-    flex-direction: column;
+}
+
+/* Media Queries for 2xl Screens */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px; 
+    padding: 0 50px;
   }
-  
-  .sideItem {
-    display: flex;
-    margin-bottom: 20px;
-    align-items: center;
+
+  .embla__slide_large {
+    width: 70%;
   }
-  
-  .imageSmall {
-    width: 70px;
-    height: 70px;
-    border-radius: 4px;
-    margin-right: 15px;
+
+  .sideListContainer {
+    width: 28%;
   }
-  
-  .sideText {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-  }
-  
-  .titleSmall {
-    font-size: 1rem;
-    font-weight: bold;
-  }
-  
-  .authorTimeSmall {
-    font-size: 0.75rem;
-    margin-top: 5px;
-    color: #555;
-  }
-  
+}
