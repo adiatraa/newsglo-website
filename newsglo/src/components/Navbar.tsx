@@ -6,7 +6,7 @@ import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 
 function Navbar() {
     return (
-        <div>
+        <div className="sticky top-0 z-50">
             <div className="navbar bg-white border-b border-[#11142D]">
                 <div className="navbar-start ml-20">
                     <div className="dropdown">
