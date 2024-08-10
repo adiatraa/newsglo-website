@@ -16,36 +16,34 @@ async function getData() {
 export default async function Home() {
   const data: ArticlePopular = await getData();
   const articles = data.results;
+  const heroArticle = articles[17];
 
   return (
     <main className="bg-white">
       <div className="p-6 sm:p-12 md:p-16 lg:px-24 lg:py-10 lg:mb-4 flex flex-col lg:flex-row gap-6 lg:gap-10 w-full lg:h-[520px] 2xl:h-[810px]">
         {/* Hero Section */}
         <div className="p-4 w-full lg:w-2/6 flex flex-col gap-4 lg:gap-6 2xl:gap-8 2xl:justify-center">
-          <h1 className="text-xs sm:text-sm text-blue-500">INNOVATION</h1>
+          <h1 className="text-xs sm:text-sm text-blue-500">{heroArticle.section.toUpperCase()}</h1>
           <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl 2xl:text-4xl font-bold leading-tight lg:leading-normal 2xl:leading-[50px]">
-            Charge Two Devices at the Same Time With This Magnetic Wireless Charging Dock
+            {heroArticle.title}
           </h1>
           <p className="text-xs sm:text-sm lg:text-base 2xl:text-md leading-5 lg:leading-6 text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            {heroArticle.abstract}
           </p>
           <div className="flex gap-4 items-center">
-            <div className="h-10 w-10 bg-gray-500 rounded-full">
-              <p>.</p>
-            </div>
             <div>
-              <h1 className="text-sm md:text-md">Adiat Rahman</h1>
+              <h1 className="text-sm md:text-md">{heroArticle.byline}</h1>
               <p className="text-xs md:text-sm text-gray-500 font-light">Author</p>
             </div>
           </div>
-          <Link href="#">
+          <Link href={heroArticle.url} target="_blank">
             <button className="btn btn-sm btn-outline hover:bg-black">Read More</button>
           </Link>
         </div>
         <div className="w-full lg:w-2/3 relative">
           <Image
             src={display}
-            alt="image1"
+            alt={heroArticle.title}
             layout="fill"
             objectFit="cover"
             className="rounded-md"
