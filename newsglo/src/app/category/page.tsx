@@ -72,6 +72,52 @@ export default function CategoryPage() {
       <div className='py-12 bg-white'>
         <TrendingCarousel />
       </div>
+      <div className="p-6 sm:p-10 md:p-16 lg:p-20 bg-[#F8F9FA] min-h-screen">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-sm sm:text-lg text-black">Our Latest Posts</h2>
+          <Link href="#">
+            <button className="btn btn-sm btn-outline hover:bg-black rounded-sm">Read More</button>
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[...Array(6)].map((_, index) => (
+            <div key={index} className="overflow-hidden bg-white rounded-lg shadow-md">
+              <div className="relative w-full h-48">
+                <Image
+                  src={display}
+                  alt="Article"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-t-lg"
+                />
+              </div>
+              <div className="p-4">
+                <span className="text-xs font-medium text-blue-500 uppercase">Innovation</span>
+                <a href="#" className="block mt-2 text-sm sm:text-base font-semibold text-black hover:underline">
+                  Charge Two Devices at the Same Time With This Magnetic Wireless Charging Dock
+                </a>
+                <p className="mt-2 text-xs sm:text-sm text-gray-600">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie parturient et sem ipsum volutpat vel.
+                </p>
+                <div className="mt-4 flex items-center space-x-8 sm:space-x-12 lg:space-x-20 2xl:space-x-48">
+                  <div className="flex items-center">
+                    <div className="h-10 w-10 bg-gray-500 rounded-full">
+                      <p>.</p>
+                    </div>
+                    <div className="ml-3">
+                      <a href="#" className="text-xs sm:text-sm font-semibold text-black">Shoo Phar Mhan</a>
+                      <span className="block text-xs text-gray-600">Author</span>
+                    </div>
+                  </div>
+                  <Link href="#">
+                    <button className="btn btn-sm btn-outline hover:bg-black rounded-sm">Read More</button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
