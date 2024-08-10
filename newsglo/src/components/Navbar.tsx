@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import React from 'react'
-import logo from '../../public/logoBlack.png'
+import React from 'react';
+import logo from '../../public/logoBlack.png';
 import Image from 'next/image';
-import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
+import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 
 function Navbar() {
     return (
@@ -28,19 +28,15 @@ function Navbar() {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
 
-                            <li><Link href="#">Item 1</Link></li>
+                            <li><Link href="/category/international">International</Link></li>
                             <li>
-
                                 <a href="#">Parent</a>
                                 <ul className="p-2">
-
-
-                                    <li><a href="#">Submenu 1</a></li>
-                                    <li><a href="#">Submenu 2</a></li>
+                                    <li><Link href="/category/subcategory1">Submenu 1</Link></li>
+                                    <li><Link href="/category/subcategory2">Submenu 2</Link></li>
                                 </ul>
                             </li>
-
-                            <li><a href="#">Item 3</a></li>
+                            <li><Link href="/category/item3">Item 3</Link></li>
                         </ul>
                     </div>
                     <Image src={logo} className="btn btn-ghost object-contain" width={70} height={70} alt="Newsglo Logo" />
@@ -58,28 +54,28 @@ function Navbar() {
             </div>
             <div className="navbar bg-white border-b border-[#11142D] hidden lg:flex 2xl:space-x-[510px] lg:space-x-96">
                 <div className="navbar-start ml-20 flex 2xl:gap-20 lg:gap-10">
-                    <Link href="#">
+                    <Link href="/">
                         <h1 className="btn btn-ghost">Home</h1>
                     </Link>
-                    <Link href="#">
+                    <Link href="/category/international">
                         <h1 className="btn btn-ghost">International</h1>
                     </Link>
-                    <Link href="#">
+                    <Link href="/category/politics">
                         <h1 className="btn btn-ghost">Politics</h1>
                     </Link>
-                    <Link href="#">
+                    <Link href="/category/business">
                         <h1 className="btn btn-ghost">Business</h1>
                     </Link>
-                    <Link href="#">
-                        <h1 className="btn btn-ghost">Entertainment</h1>
+                    <Link href="/category/food">
+                        <h1 className="btn btn-ghost">Food</h1>
                     </Link>
-                    <Link href="#">
+                    <Link href="/category/sport">
                         <h1 className="btn btn-ghost">Sport</h1>
                     </Link>
-                    <Link href="#">
+                    <Link href="/category/health">
                         <h1 className="btn btn-ghost">Health</h1>
                     </Link>
-                    <Link href="#">
+                    <Link href="/category/technology">
                         <h1 className="btn btn-ghost">Technology</h1>
                     </Link>
                 </div>
@@ -88,7 +84,7 @@ function Navbar() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Navbar;

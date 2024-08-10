@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: { categoryName: string 
         <div className="relative h-[320px] sm:h-[420px] md:h-[520px] 2xl:h-[810px]">
           <Image
             src={display}
-            alt={heroArticle.headline.main}
+            alt={heroArticle?.headline.main}
             layout="fill"
             objectFit="cover"
             quality={100}
