@@ -1,12 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
-import display from '../../../../public/display.jpg'; 
+import display from '../../../../public/display.jpg';
 import Link from 'next/link';
 import TrendingCarousel from '@/components/TrendingSlide';
 import { ArticleCategory } from '@/categoryTypes';
 
 async function getData(category: string) {
-  const res = await fetch(`https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`);
+  const res = await fetch(`https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`, {
+    cache: 'no-cache'
+  });
 
   if (!res.ok) {
     throw new Error('Could not fetch data');
@@ -16,7 +18,7 @@ async function getData(category: string) {
 
 export default async function Page({ params }: { params: { categoryName: string } }) {
   const data: ArticleCategory = await getData(params.categoryName);
-  const articles = data.results; 
+  const articles = data.results;
   const heroArticle = articles[1];
   const sideArticles = articles.slice(1, 3);
 
@@ -69,12 +71,12 @@ export default async function Page({ params }: { params: { categoryName: string 
           ))}
         </div>
       </div>
-      
+
       {/* Trending Slide */}
       <div className='py-12 bg-white'>
         <TrendingCarousel articles={articles} />
       </div>
-      
+
       {/* Most Popular Article */}
       <div className="p-6 sm:p-10 md:p-16 lg:p-20 bg-[#F8F9FA] min-h-screen">
         <div className="flex justify-between items-center mb-6">

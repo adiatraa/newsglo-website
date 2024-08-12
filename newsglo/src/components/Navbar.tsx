@@ -72,7 +72,7 @@ function Navbar() {
                     <Link href="/category/sports">
                         <h1 className="btn btn-ghost">Sports</h1>
                     </Link>
-                    <Link href="/category/movies">
+                    <Link href="/category/fashion">
                         <h1 className="btn btn-ghost">Movies</h1>
                     </Link>
                     <Link href="/category/technology">
