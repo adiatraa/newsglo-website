@@ -4,6 +4,7 @@ import display from "../../public/display.jpg";
 import { VideoCarousel } from '../components/VideoCarousel';
 import { ArticlePopular } from "@/types";
 
+//Fetch Most Popular Articles
 async function getData() {
   const res = await fetch('https://api.nytimes.com/svc/mostpopular/v2/emailed/1.json?api-key=' + process.env.NEXT_PUBLIC_NEWS_API_KEY, 
   {cache: 'no-cache'});
